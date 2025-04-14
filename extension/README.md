@@ -39,7 +39,7 @@ Stock Info는 웹 페이지에서 한국 상장 회사 이름을 선택하면 �
 
 1.  **서버 폴더로 이동:**
     ```bash
-    cd /path/to/repository/server
+    cd ./server
     ```
 2.  **필요한 라이브러리 설치:**
     ```bash
