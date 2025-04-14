@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회사 정보 대시보드</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <!-- Include Chart.js -->
+  <script src="js\\chart.umd.min.js"></script>
+  <script src="js\\chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <div class="company-header">
+        <h1 id="company-name" class="company-name">회사명</h1>
+        <div class="ticker-info">
+          <span id="ticker-symbol">티커</span>
+          <span id="exchange">거래소</span>
+          <!-- 추가 정보를 같은 라인에 배치 -->
+          <span id="industry" class="truncated-industry" data-tooltip="">주요제품: -</span>
+          <div id="tooltip" class="custom-tooltip" hidden></div>
+          <!-- <span id="website">웹사이트: -</span> -->
+          <span id="website">웹사이트: <a href="#" target="_blank" id="website-link">-</a></span> 
+          <!-- <span id="phone">전화번호: -</span> -->
+        </div>
+      </div>
+      <div class="price-info">
+        <div class="current-price" id="current-price">0.00</div>
+        <div class="price-change">
+          <span id="price-change">0.00</span>
+          <span id="price-change-percent">(0.00%)</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-grid">
+      <section class="chart-section">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+          <h2 style="margin: 0;">주가 차트</h2>
+          <div id="indicator-checkboxes">
+            <label><input type="checkbox" value="ma20" class="indicator-checkbox"> MA20</label>
+            <label><input type="checkbox" value="ma60" class="indicator-checkbox"> MA60</label>
+            <label><input type="checkbox" value="bollinger" class="indicator-checkbox"> Bollinger Band</label>
+          </div>
+        </div>
+        <div class="chart-controls">
+          <button class="time-range" data-range="1mo">1개월</button>
+          <button class="time-range" data-range="3mo">3개월</button>
+          <button class="time-range" data-range="6mo">6개월</button>
+          <button class="time-range" data-range="1y">1년</button>
+          <button class="time-range" data-range="5y">5년</button>
+        </div>
+        <div class="chart-container">
+          <canvas id="stock-chart"></canvas>
+        </div>
+      </section>
+
+      <section class="financial-section">
+        <div class="financial-header">
+          <h2>재무 정보</h2>
+          <button id="toggle-financial-chart" class="chart-toggle-btn" title="재무 추이 그래프 보기">📊</button>
+        </div>
+        <div class="financial-grid">
+          <div class="financial-card">
+            <h3>시가총액</h3>
+            <div id="market-cap" class="financial-value">-</div>
+            <div class="industry-compare"></div>
+          </div>
+          <div class="financial-card">
+            <h3>매출액</h3>
+            <div id="revenue" class="financial-value">-</div>
+            <div id="revenue-growth" class="growth-rate">-</div>
+          </div>
+          <div class="financial-card">
+            <h3>영업이익</h3>
+            <div id="operating-profit" class="financial-value">-</div>
+            <div id="operating-margin" class="ratio">-</div>
+          </div>
+          <div class="financial-card">
+            <h3>순이익</h3>
+            <div id="net-income" class="financial-value">-</div>
+            <div id="net-margin" class="ratio">-</div>
+          </div>
+          <div class="financial-card">
+            <h3>PER</h3>
+            <div id="per" class="financial-value">-</div>
+            <div id="per-industry" class="industry-compare">-</div>
+          </div>
+          <div class="financial-card">
+            <h3>배당수익률</h3>
+            <div id="dividend-yield" class="financial-value">-</div>
+            <div class="industry-compare"></div>
+          </div>
+        </div>
+        <div id="financial-chart-container" style="display: none;">
+          <canvas id="financialChart" height="200"></canvas>
+        </div>
+      </section>
+
+      <section class="news-section">
+        <h2>최근 뉴스</h2>
+        <div id="news-container" class="news-container">
+          <!-- 뉴스 항목들이 여기에 동적으로 추가됩니다 -->
+          <div class="loading-news">뉴스를 불러오는 중...</div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="disclaimer">
+        <p>주의: 이 정보는 투자 참고용으로만 제공되며, 정확성을 보장하지 않습니다. 모든 투자 결정에 대한 책임은 투자자 본인에게 있습니다.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

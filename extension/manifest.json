@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "한국 상장회사 정보 대시보드",
+  "version": "1.0",
+  "description": "웹페이지에서 한국 상장회사 이름을 선택하고 해당 회사의 재무, 주식 차트, 최근 뉴스 등을 확인할 수 있는 익스텐션",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}
