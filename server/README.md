@@ -31,7 +31,7 @@ Flask 기반으로 만들어진 간단한 주식 정보 제공 API 서버입니�
 
 1.  **저장소 복제:**
     ```bash
-    git clone <저장소_URL>
+    git clone [<저장소_URL>](https://github.com/SomersetMaugham/StockApiServer.git)
     cd <프로젝트_디렉토리>
     ```
 
